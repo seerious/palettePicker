@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width initial-scale=1.0">
+        <title>Colour Palette Picker</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    </head>
+
+    <body>
+        <main class="container">
+            <h1>Colour Palette Picker</h1>
+
+            <section class="controls">
+                <label class="control-row">
+                    <span>Base Colour</span>
+                    <input id="baseColor" type="color" value="#4f46e5">
+                    <input id="baseHex" type="text" value="#4f46e5">
+                </label>
+
+                <label class="control-row">
+                    <span>Palette Type</span>
+                    <select id="paletteType">
+                        <option value="complementary">Complementary</option>
+                        <option value="analogous">Analogous</option>
+                        <option value="triadic">Triadic</option>
+                        <option value="monochrome">Monochrome</option>
+                        <option value="gradient">Gradient</option>
+                    </select>
+                </label>
+
+                <label class="control-row">
+                    <span>Count</span>
+                    <input id="count" type="number" min="2" max="8" value="5">
+                </label>
+
+                <div class="buttons">
+                    <button id="generate">Generate</button>
+                    <button id="copy">Copy CSS Vars</button>
+                </div>
+            </section>
+
+            <section id="palette" class="palette-grid" aria-live="polite">
+
+            </section>
+
+            <section class="output">
+                <textarea id="cssOutput" readonly rows="4" placeholder="CSS variables will appear here."></textarea>
+            </section>
+
+            <footer class="notes" id="notes">
+                Tip: click a color hex to copy it. Use the CSS variables button to copy variables for your stylesheet.
+            </footer>
+        </main>
+
+        <script src="{{ url_for('static', filename='script.js')}}"></script>
+    </body>
+</html>
